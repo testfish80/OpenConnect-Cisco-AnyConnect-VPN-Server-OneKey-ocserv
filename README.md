@@ -14,6 +14,7 @@ docker build -t ocserv https://github.com/testfish80/OpenConnect-Cisco-AnyConnec
 3. Run docker container
 ```bash
 docker run --name ocserv --privileged -p 443:443 -p 443:443/udp -d ocserv
+
 ```
 
 4. Add user
@@ -46,6 +47,12 @@ docker exec -ti ocserv ocpasswd -c /etc/ocserv/ocpasswd -u testUserName
 docker exec -ti ocserv cat /etc/ocserv/ocpasswd
 ```
 
+10. 开放443端口
+```bash
+    sudo iptables -I INPUT -p tcp --dport 443 -j ACCEPT
+sudo netfilter-persistent save
+sudo netfilter-persistent reload
+```
 ## Script Installation
 Tested on ubuntu 18.04 and 16.04.
 
