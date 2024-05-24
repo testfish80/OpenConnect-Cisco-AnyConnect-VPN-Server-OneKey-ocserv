@@ -1,4 +1,4 @@
-FROM alpine:3.19.1
+FROM alpine:latest
 
 ENV OCSERV_VERSION 1.2.4
 ENV CA_CN SAMPLE CA
